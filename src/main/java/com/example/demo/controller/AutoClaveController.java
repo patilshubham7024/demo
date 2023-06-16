@@ -19,6 +19,7 @@ public class AutoClaveController {
 
     @PostMapping("/get")
     public ResponseEntity<?> get(@RequestBody Filter filter) {
+        log.info("Log --> AutoClaveController --> get()");
         return new ResponseEntity<>(autoClaveService.getAutoClave(filter), HttpStatus.OK);
     }
 
