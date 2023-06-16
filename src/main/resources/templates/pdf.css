@@ -1,0 +1,79 @@
+#tableContainer td,
+#tableContainer th {
+  padding: 2px 5px !important ;
+}
+#tableContainerNew {
+  background-color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+#tableContainerNew span {
+  /* background-color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid black;
+  text-align: center;
+  color: black;
+  width: 10rem;
+  display: inline-block; */
+}
+.pdf-heading .head-wrapper {
+  display: flex;
+}
+
+.pdf-heading .head-wrapper .ch1 {
+  /* border: 1px solid black; */
+  width: 14rem;
+  height: 5rem;
+  border: 1px solid black;
+}
+.pdf-heading .head-wrapper .ch2 {
+  /* border: 1px solid black; */
+  width: 50rem;
+  height: 5rem;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pdf-heading .head-wrapper .ch3 {
+  /* border: 1px solid black; */
+  width: 14rem;
+  height: 5rem;
+  border: 1px solid black;
+}
+
+.pdf-heading .head-wrapper .heading-main-container {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 30rem;
+  /* height: 0  rem; */
+  padding: 1rem;
+}
+
+.name-product-table {
+  width: 100%;
+}
+
+.batch-details-tables table {
+  width: 100%;
+}
+.batch-details-tables td {
+  height: 2.5rem !important;
+}
+.PARAMETERS-details-tables table {
+  width: 100%;
+}
+.PARAMETERS-details-tables td {
+  height: 2.5rem !important;
+}
+
+.table-lable-left table tr td:nth-child(1) {
+  color: rgb(2, 3, 66);
+  text-align: right;
+}
+
+.batch-details-tables td, .PARAMETERS-details-tables td {
+  border: none;
+}
+

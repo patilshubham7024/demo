@@ -1,0 +1,93 @@
+.d-flx {
+  display: flex;
+}
+.flx-jus-cen {
+  display: flex;
+  justify-content: center;
+}
+
+.flx-jus-spc-bet {
+  display: flex;
+  justify-content: space-between;
+}
+.txt-alin-cntr {
+  text-align: center;
+}
+
+.flx-dir-clm-rvs {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* margin-padding */
+
+.m-1 {
+  margin: 1rem;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+.mr-1 {
+  margin-right: 1rem;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.ml-1 {
+  margin-left: 1rem;
+}
+.p-1 {
+  margin: 1rem;
+}
+.pt-1 {
+  margin-top: 1rem;
+}
+.pr-1 {
+  margin-right: 1rem;
+}
+.pb-1 {
+  margin-bottom: 1rem;
+}
+.pl-1 {
+  margin-left: 1rem;
+}
+
+/* border */
+
+.border-none {
+  border: none;
+}
+.border-none-right {
+  border-right: none;
+}
+.border-none-left {
+  border-left: none;
+}
+.border-none-top {
+  border-top: none;
+}
+.border-none-bottom {
+  border-bottom: none;
+}
+
+.border-right {
+  border-right: 1px solid black !important;
+}
+.border-left {
+  border-left: 1px solid black  !important;
+}
+.border-top {
+  border-top: 1px solid black !important;
+}
+.border-bottom {
+  border-bottom: 1px solid black !important;
+}
+
+/* cursor */
+.cur-p {
+  cursor: pointer;
+}
+
+.width-100 {
+  width: 100%;
+}

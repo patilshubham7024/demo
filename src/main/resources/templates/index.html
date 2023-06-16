@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="tabLogo.png" type="image/x-icon" />
+  <title>Audit Trail Report</title>
+  <link rel="stylesheet" href="pridefine.css" />
+  <link rel="stylesheet" href="styleMAinPRo.css" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pdf.css" />
+
+
+  <!-- <link rel="stylesheet" href="./styleDark.css" /> -->
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body class="body">
+  <div class="wrapper collapse" id="wrapper">
+    <div class="top_navbar">
+      <div class="hamburger" onmouseover="sliderOpen()" onmouseout="sliderClose()">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+      </div>
+      <div class="top_menu">
+        <div class="logo">Audit Trail Report</div>
+        <ul>
+
+          <li>
+            <a >
+              <!-- <i class="fas fa-bell"></i> -->
+            </a>
+          </li>
+          <li>
+            <a title="Download File" >
+              <img onclick="exportData('export')" height="33" class="cur-p download-icon" src="download-icon.jpg" alt="download">
+              <!-- <i class="fas fa-user"></i> -->
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar" onmouseover="sliderOpen()" onmouseout="sliderClose()">
+      <!-- <ul>
+        <li>
+          <a href="#">
+            <span class="icon">B</span>
+            <span class="title">Books</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon">M</i></span>
+            <span class="title">Movies</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon">S</i></span>
+            <span class="title">Sports</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon">Bl</i></span>
+            <span class="title">Blogs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#N">
+            <span class="icon">N</i></span>
+            <span class="title">Nature</span>
+          </a>
+        </li>
+      </ul> -->
+    </div>
+
+    <div class="main_container">
+      <div class="item">
+        <div class="project_container">
+
+          <div class="input-wrapper">
+            <span class="label" >Maximum Water Level</span>
+            <input type="text"  placeholder="Enter Maximum Water Level" id="0" class="input-field"
+              name="waterLevelMax" extra="Maximum Water Level" onkeyup="onChangeInput(event,'num')" pattern="[0-9]">
+          </div>
+
+          <div class="input-wrapper">
+            <span class="label">Minimum Water Level</span>
+            <input type="text"  placeholder="Enter Minimum Water Level" id="1" class="input-field"
+              name="waterLevelMin" extra="Minimum Water Level" onkeyup="onChangeInput(event,'num')">
+          </div>     
+          
+          <div class="input-wrapper">
+            <span class="label">Minimum Pressure</span>
+            <input type="text"  placeholder="Enter Minimum Pressure" id="2" class="input-field"
+              name="pressureMax" onkeyup="onChangeInput(event,'num')">
+          </div>
+
+          <div class="input-wrapper">
+            <span class="label">Maximum Pressure</span>
+            <input type="text" placeholder="Enter Maximum Pressure" id="3" class="input-field"
+              name="pressureMin" onkeyup="onChangeInput(event,'num')" pattern="[0-9]">
+          </div>
+
+
+          <div class="input-wrapper">
+            <span class="label important">From Date</span>
+            <input required type="date"  placeholder="Enter From Date" id="4" class="input-field" name="dateTimeMin"
+              onchange="onChangeInput(event)">
+          </div>
+
+          <div class="input-wrapper">
+            <span class="label important">From Time</span>
+            <input required type="time"  placeholder="Enter From Time" id="5" class="input-field" name="fromTime" step="1"
+              onchange="onChangeInput(event)">
+          </div>
+
+          <div class="input-wrapper">
+            <span class="label important">To Date</span>
+            <input required type="date"  placeholder="Enter To Date" id="6" class="input-field" name="dateTimeMax"
+              onchange="onChangeInput(event)">
+          </div>
+
+          <div class="input-wrapper">
+            <span class="label important">To Time</span>
+            <input required type="time"  placeholder="Enter To Time" id="7" class="input-field" name="toTime" step="1"
+              onchange="onChangeInput(event)">
+          </div>
+
+          <div class=" export-reset-btn ">
+            <button class="exportBtn cur-p" id="Export" onclick="exportData('view')">View</button>
+            <!-- <button class="exportBtn cur-p" id="Export" onclick="fetchMethod('view')">View</button> -->
+
+            <button class="resetBtn cur-p" id="Export" onclick="reset()">Reset</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div id="fullWidthBackground"></div>
+        <div id="model"> </div>
+        <!-- <div class="popUp p red   popUpEntrada"> -->
+        <!-- <div class="error-icon"></div>
+          <div><span>My text example</span></div>
+          <button class="puCancelar b-100">Close</button> -->
+        <!-- <button class="puEnviar ">Send</button> -->
+        <!-- </div> -->
+      </div>
+      <!-- <button onclick="modelOnDemo()">demo model click</button>
+      <button onclick="closeModel()">close model click</button> -->
+
+      <!-- <div id="addEle">add ele</div> -->
+      <!-- <button onclick="graph()" class="demoBtn" id="1pdf" data-color="red" > -->
+     
+
+      <!-- <button onclick="convertToImage()">Convert to Image</button> -->
+      <div class="nodataSec-nodataText" id="nodataText" style="display: none">No Data To Display</div>
+      <div id="tableContainerNew" style="display: none;"  >
+        <div class="pdf-heading">
+          <div class="head-wrapper">
+            <div class="ch1">
+              <img style="padding: 1.5rem 0.5rem;
+              width: 3rem;" src="clinte-Logo-1.png" alt="">
+            </div>
+            <div class="ch2">
+              <div id="machineName" class="heading-main-container" style=" font-size: 1rem; font-weight: bold;     width: 20rem;     font-family: 'Montserrat', sans-serif;">
+                HOT WATER SPRAY STERILIZER
+                AUTOCLAVE-III- BATCH REPORT
+              </div>
+            </div>
+            <div class="ch3">
+              <img style="padding: 1.5rem 0.5rem;
+              width: 14rem;" src="kukson-logo-2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+
+        <table class="name-product-table">
+          <tr class="name-row">
+            <td  style="border-right:none; color: black;  font-weight: bold; font-family: 'Montserrat', sans-serif;" >
+              PRODUCT NAME:
+              <span style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;"
+              id="productName" >Autoclave-3</span></td>
+            <td style="border-right:none;border-left:none;  color: black;  font-weight: bold; font-family: 'Montserrat', sans-serif;">
+              LOT NO : 
+              <span style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;"
+               id="lotNo">2</span> 
+            </td>
+            <td class="border-none-left" style="border-left:none; color: black;  font-weight: bold; font-family: 'Montserrat', sans-serif;">
+              BATCH NO : 
+              <span style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;"
+              id="batchNo">Batch Test</span> 
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" style="font-size: 1rem;  font-weight: bold; font-family: 'Montserrat', sans-serif;" class="txt-alin-cntr border-none-top">
+              BATCH DETAILS
+            </td>
+          </tr>
+        </table>
+
+        <div class="txt-alin-cntr d-flx batch-details-tables  table-lable-left     ">
+          <table>
+            <tr>
+              <td class="border-left" >Product Name :</td>
+              <td >
+                <span id="productName" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >Autoclave-3</span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Batch No :</td>
+              <td>
+                <span id="batchNo" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >Batch Test
+                </span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Lot No:</td>
+              <td>
+                <span id="lotNo" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >2</span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Cycle No:</td>
+              <td>
+                <span id="cycleNo" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >10</span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Pack Size In ml:</td>
+              <td>
+                <span id="packSizeInMl" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >150</span> 
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td class="border-left" >Time Interval:</td>
+              <td  class="border-right">
+                <span id="timeInterval" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >10</span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Program No:</td>
+              <td class=" border-right">
+                <span id="programNo" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >1</span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left"  >Cycle Start Date & Time:</td>
+              <td class="border-right">
+                <span id="cycleStartDateTime" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >03/08/2021 10:22:17</span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Cycle End Date & Time:</td>
+              <td class="border-right" >
+                <span id="cycleEndDateTime" style="text-align: center; color: black;  width: 10rem;  display: inline-block; font-weight: bold; border: 2px solid black;" >03/08/2021 10:22:17</span> 
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left"></td>
+              <td class="border-right" ></td>
+            </tr>
+          </table>
+        </div>
+        <table class="width-100">
+          <tr>
+            <td
+              colspan="3"
+              class="txt-alin-cntr"
+              style="font-size: 1rem;  font-weight: bold; font-family: 'Montserrat', sans-serif;"
+            >
+              PARAMETERS  
+            </td>
+          </tr>
+        </table>
+        <div class="txt-alin-cntr d-flx PARAMETERS-details-tables table-lable-left      ">
+          <table>
+            <tr>
+              <td class="border-left" >Cooling Temperature :</td>
+              <td>
+                <span id="coolingTemperature" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(°C)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Overheating :</td>
+              <td>
+                <span id="overheating" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(°C)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Sterilization Temperature :</td>
+              <td>
+                <span id="sterilizationTemperature" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(°C)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">+ Temp Limit :</td>
+              <td>
+                <span id="plusTempLimit" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(°C)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">- Temp Limit :</td>
+              <td>
+                <span id="minusTempLimit" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(°C)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left border-bottom">Sterilization Time :</td>
+              <td class="border-bottom" >
+                <span id="sterilizationTime" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span><span> (min)</span> 
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr >
+              <td class="border-left">
+                Chamber Pressure Limit During Heating :
+              </td>
+              <td class="border-right">
+                <span id="chamberPressureLimitDuringHeating" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(BAR)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">
+                Chamber Pressure Sterilization Temp :
+              </td>
+              <td class="border-right">
+                <span id="chamberPressureSterilizationTemp" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(BAR)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">
+                Chamber Pressure at Start Cooling :
+              </td>
+              <td class="border-right">
+                <span id="chamberPressureAtStartCooling" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(BAR)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">
+                Chamber Pressure at End of Cooling :
+              </td>
+              <td class="border-right">
+                <span id="chamberPressureAtEndOfCooling" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(BAR)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left">Chamber Pressure After Drain :</td>
+              <td class="border-right">
+                <span id="chamberPressureAfterDrain" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(BAR)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-left border-bottom" >Purified Water Level :</td>
+              <td class="border-right border-bottom">
+                <span id="purifiedWaterLevel" style="text-align: center; color: black;  width: 6rem;  display: inline-block; font-weight: bold; border: 2px solid black;" ></span> <span>(BAR)</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="height-5rem"></div>
+        <table class="width-100">
+          <tr>
+            <td colspan="3" style="font-size: 1rem;  font-weight: bold; font-family: 'Montserrat', sans-serif;" class="txt-alin-cntr  border-none-bottom">
+              PROCESS VALUE
+            </td>
+          </tr>
+        </table>
+
+        <div id="tableContainer"></div>
+
+
+      </div>
+
+      <!-- <span id="pdf" onclick="takePdf()">Export -->
+        <!-- <p><div id="red">print this to pdf</div></p> -->
+        <!-- <canvas id="graphCanvas" width="400" height="300"></canvas> -->
+        <!-- <img id="graphImage" alt="Graph Image" style="display: none"><img src="./tabLogo.png" alt="logo"> -->
+
+
+      <!-- </span> -->
+
+    </div>
+
+    
+  </div>
+</body>
+<script src="index.js"></script>
+
+</html>

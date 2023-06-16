@@ -1,0 +1,572 @@
+what is server side rendering and clintSide rendering 
+
+The main difference between server−side and client−side rendering is that with server−side rendering, the browser only receives HTML from the server when it requests it, while with client−side rendering, the browser also gets JavaScript from the server which it then executes before displaying any content
+
+What is server-side rendering?
+Server-side rendering (SSR) means that the content of your site is generated on the server, then sent to the browser. This is useful for SEO purposes, because search engines can "see" the content of your site before they send it to users
+
+What is client-side rendering?
+Client-Side Rendering Definition
+
+Client-side rendering(CSR) involves rendering pages directly in the browser using JavaScript. All logic, data retrieval, templating, and routing are handled on the client, not on the server
+
+What is client-side rendering example?
+Image result for example of client side rendering and client side rendering in react js
+The client-side framework manages to update UI with changed data by re-rendering only that particular DOM element. Today, Angular and React. js are some of the best examples of libraries used in client-side rendering.
+
+programming languages — examples of popular server-side web languages include PHP, Python, Ruby, C#, and JavaScript (NodeJS).
+
+Is Next.js client-side or server-side?
+Next. js is used for server side rendering of react application . React along with other framework like angular and vue. js are traditional client side framework ,they run in browser but there are technology to run this framework on server side, and next.
+
+
+
+
+
+What is the difference between scripting and programming?
+
+Scripts are few lines of code used within a program. These scripts are written to automate some particular tasks within the program. Programming languages are a set of code/instructions for the computer that are compiled at runtime. Thus an exe file is created.
+
+The basic difference between a scripting language and a programming language is that scripting languages do not need an additional step of compilation and rather they are interpreted, whereas programming languages are compiled and hence need a compilation step to convert the high-level language to machine code.
+
+JavaScript is an interpreted language, not a compiled language. A program such as C++ or Java needs to be compiled before it is run. The source code is passed through a program called a compiler, which translates it into bytecode that the machine understands and can execute.
+
+An interpreted language is one that does not require compiling into machine language. It is executed by an interpreter who reads the source code and converts it into a form that is directly executed. The interpreter executes code line by line which makes JavaScript synchronous in nature.
+
+Does JavaScript use an interpreter or compiler?
+JavaScript is an interpreted language and doesn't require to compile before execution, but V8 compiles JavaScript to native machine code before executing it to increase performance, versus executing bytecode or interpreting it
+
+
+
+
+
+What is primitive vs non-primitive JavaScript?
+The fundamental difference between primitives and non-primitive is that primitives are immutable and non-primitive are mutable . Mutable values are those which can be modified after creation. Immutable values are those which cannot be modified after creation.
+
+mutable example 
+let arr = [1, 2, 34];
+let arr1 = arr;
+arr1 = [23, 33];
+
+let obj = {
+  names: "Nasar AHamed",
+  age: 24,
+};
+
+let newObj = obj;
+newObj.names = "Sharukh"
+newObj.age = 26
+console.log(obj, newObj, "kl");
+
+
+
+
+
+These are the features of JavaScript:
+
+Lightweight, interpreted programming language (Lightweight programming languages are designed to have small memory footprint, are easy to implement and/or have minimalist syntax and features.)
+Cross-platform compatible
+Open-source
+Object-oriented
+Integration with other backend and frontend technologies
+with the help of JavaScript we can built Rich User Interface(JavaScript helps in making the UI of web applications look and feel much better.)
+
+What are the advantages of JavaScript over other web technologies?
+These are the advantages of JavaScript:
+
+Enhanced Interaction
+JavaScript adds interaction to otherwise static web pages and makes them react to users’ inputs.
+
+Quick Feedback
+There is no need for a web page to reload when running JavaScript. For example, form input validation.
+
+Rich User Interface
+JavaScript helps in making the UI of web applications look and feel much better.
+
+Frameworks
+JavaScript has countless frameworks and libraries that are extensively used for developing web applications and games of all kinds.
+
+
+
+
+
+Call Apply and bind methods javascript
+
+function Car(type, fuelType){
+	this.type = type;
+	this.fuelType = fuelType;
+}
+
+function setBrand(brand){
+	Car.call(this, "convertible", "petrol");
+	this.brand = brand;
+	console.log(`Car details = `, this);
+}
+
+function definePrice(price){
+	Car.call(this, "convertible", "diesel");
+	this.price = price;
+	console.log(`Car details = `, this);
+}
+
+const newBrand = new setBrand('Brand1');
+const newCarPrice = new definePrice(100000);
+
+
+
+function Car(type, fuelType){
+	this.type = type;
+	this.fuelType = fuelType;
+}
+
+function setBrand(brand){
+	Car.apply(this, ["convertible", "petrol"]); //Syntax with array literal
+	this.brand = brand;
+	console.log(`Car details = `, this);
+}
+
+function definePrice(price){
+	Car.apply(this, new Array("convertible", "diesel")); //Syntax with array object construction
+	this.price = price;
+	console.log(`Car details = `, this);
+}
+
+const newBrand = new setBrand('Brand1');
+const newCarPrice = new definePrice(100000);
+
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 1
+    };
+   this.handleCode = this.handleCode.bind(this); //bind this function
+  }
+  handleCode() {
+    console.log("HANDLE CODE THIS = ", this.state);
+  }
+  render() {
+    return <button onClick={this.handleCode}>Click Me</button>;
+  }
+}
+
+
+ What are the scopes of a variable in JavaScript?
+The scope of a variable implies where the variable has been declared or defined in a JavaScript program. There are two scopes of a variable:
+
+Global Scope
+Global variables, having global scope are available everywhere in a JavaScript code.
+
+Local Scope is function scope
+Local variables are accessible only within a function in which they are defined.
+
+Block scope are nothing but flower parenthesis 
+
+What is difference between lexical scope and closure in JavaScript?
+A closure in JavaScript is a feature where an inner function has access to the outer (enclosing) function's variables — a scope chain. Closures in Javascript are created along with the function. Lexical scoping is the environment that holds the variables of the current scope as well as the outer scope.
+
+exampl
+ function name1(){
+  let a = 10
+  let b = 20
+  
+  return function hello(){
+    console.log(a,b,"llk");
+  }
+  }
+
+
+what are cookies ?
+ A cookie is a piece of data that is stored on your computer(laocally server) or server  to be accessed by your browser.They save browsing information to make your online experience easier. With cookies, sites can keep you signed in.maximum 4kb of data can be stored.
+
+example: document.cookie = "username=Nasar; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+What is session storage and local storage?
+sessionStorage is similar to localStorage ; the difference is that while data in localStorage doesn't expire, data in sessionStorage is cleared when the page session ends. Whenever a document is loaded in a particular tab in the browser, a unique page session gets created and assigned to that particular tab.
+
+The Data in  local storage is clered when we close the browser window
+
+localStorage.setItem("NasarLocal","coddertest")
+localStorage.getItem("NasarLocal")
+localStorage.removeItem("NasarLocal")
+
+sessionStorage.setItem("NasarLocal","coddertest")
+sessionStorage.getItem("NasarLocal")
+sessionStorage.removeItem("NasarLocal")
+
+
+types of functions in javascript ?
+ 1.named function 
+function greet() {
+    console.log("Hello world");
+}
+greet();
+
+2.function declared to a variable with function expression
+
+var greet = function () {
+  console.log("Welcome to Javascript");
+};
+greet();
+
+3.arrow function 
+const names =()=>{
+
+}
+
+4.Immediately Invoked Function Expressions
+(function () {
+  console.log("Welcome to Javascript");
+})();
+
+5.Constructor Functions
+// new Function creates a new function object 'multiply'
+const multiply = new Function('a', 'b', 'return a * b');
+console.log(multiply(2, 6));
+// expected output: 12
+
+Also, constructor functions can be used with the this keyword. This allows developers to assign values to the function object as properties. For example, in the code below, the properties name and age are assigned to the function Person using the this keyword.
+// constructor function
+function Person() {
+    this.name = "Anita",
+    this.age = 21
+}
+// create an object
+const person = new Person();
+
+//access properties
+console.log(person.name);
+console.log(person.age);
+
+2nd example for constructor function 
+function hess1() {
+  console.log("i am in", "i am in");
+  this.names = "Nasar";
+  return "i am in ";
+}
+
+let firstnums = hess1();
+let secondnums = new hess1();
+console.log(firstnums, secondnums, "bbss");
+
+
+What is the difference between Undefined and Null in JavaScript?
+
+Undefined means a variable has been declared but a value has not yet been assigned to that variable.
+
+variable is declared and assigned with null value 
+
+
+ What is the difference between Undefined and Undeclared in JavaScript?
+
+Undefined means a variable has been declared but a value has not yet been assigned to that variable.
+Variables that are not declared or that do not exist in a program or application.
+
+What is the difference between Document and Window in JavaScript?
+The document comes under the windows object and can also be considered as its property.
+Window in JavaScript is a global object that holds the structure like variables, functions, location, history, etc.
+
+
+ What are Imports and Exports in JavaScript?
+with the help of imports and exports we can add abc file in some xyz file ,to get file imported it needs to be exported .
+
+What are the ways of defining a variable in JavaScript?
+variables nameing conventions :
+Names can contain letters, digits, underscores, and dollar signs.
+Names must begin with a letter.
+Names can also begin with $ and _ (but we will not use it in this tutorial).
+Names are case sensitive (y and Y are different variables).
+
+var:
+var can be used to redeclared a variable  as many number of time and can we reassigned as many number of time.
+var is function scope and globle scope 
+let:
+let cannot be used to redeclared a variable and can we reassigned as many number of time.
+let is function scope  and block scope 
+const:
+const cannot be used to redeclared a variable and cannot be reassigned .
+const is function scope  and block scope 
+
+JavaScript Hoisting 
+Hoisting is JavaScript's default behavior of moving all declarations of variable, functions and classes  to the top of the current scope .
+
+console.log(a);// undefined
+var a ="var Hoistings"
+
+console.log(a,b);// Cannot access 'a' before initialization
+let  a ="let Hoistings"
+const b = "const hoisting"
+
+some other examples for hoisting 
+
+var a1= 20
+const appl= function(){
+console.log(a1,"kk");
+ var a1= 30
+}
+appl()
+//undefined
+
+
+for let and const 
+let a1= 20
+const appl= function(){
+console.log(a1,"kk");
+ let a1= 30
+}
+appl()
+//Cannot access 'a1' before initialization
+
+only named function decalaration can be hoisted
+named()
+function named(){
+console.log("this is names function and its hoisted");
+}
+
+What is temporal dead zone?
+A temporal dead zone (TDZ) is the area of a block where a variable is inaccessible until the moment the computer completely initializes it with a value. we can see the tempral dead zone area for let and const.
+
+ Rest parameter and spread operator in javascript?
+ Rest parameter and spread operator bot having a same syntax 
+Spread operator is used to make shallow copy of array  and object
+let obj1 ={
+name :"Nasar"
+}
+let obj={
+age:24,
+job:"software engineer"
+}
+
+let newObj= {...obj1,...obj}
+console.log(newObj);
+
+
+n number of argumnts are passing in function , we can access the arguments as array inside the function.
+  function average(...args) {
+        console.log(args);
+        var avg =
+            args.reduce(function (a, b) {
+                return a + b;
+           }, 0) / args.length;
+        return avg;
+    }
+    console.log("average of numbers is : "
+        + average(1, 2, 3, 4, 5));
+    console.log("average of numbers is : "
+        + average(1, 2, 3));
+
+What is BOM?
+BOM is the Browser Object Model where users can interact with browsers that is a window, an initial object of the browser. The window object consists of a document, history, screen, navigator, location, and other attributes. Nevertheless, the window’s function can be called directly as well as by referencing the window.
+
+Recursion in a programming language?
+A function that calls itself again and again unless we get the desired autput is called a recursive function.
+
+let a = 0;
+function app(b) {
+  a += b;
+  console.log(a, b, (a += b), "out2");
+  if (a <= 11) {
+    console.log(a, "out");
+    return app(a);
+  } else {
+    console.log(a, "out1");
+    return a;
+  }
+}
+console.log(app(1));
+
+
+CallBack function and higher order function ?
+function which takes another function as argument is called HOF
+functoin which get passed as an argument to another function  is called callback function 
+
+memoization javascript
+memoization is a optimization technique in javascript ,this is used to reduce time during exicution.
+memoization is nothing but storing the results of function in a variable and when the same function is called with the same input  we can return the value from existing variable,with out running the logic again and agin for the same inputs.
+
+
+Types of errors in javascript
+Javascript has two types of errors, Syntax error, and Logical error.
+
+
+. What are object prototypes?
+Following are the different object prototypes in javascript that are used to inherit particular properties and methods from the Object.prototype.
+Date objects are used to inherit properties from the Date prototype
+Math objects are used to inherit properties from the Math prototype
+Array objects are used to inherit properties from the Array prototype.
+
+
+Advantages of using External JavaScript
+
+It also enables you to reuse the code.
+External javascript makes Code readability simple. 
+
+
+What Is Currying in JavaScript?
+ Currying in JavaScript transforms a function with multiple arguments into a nested series of functions, each taking a single argument
+
+ function calculateVolume(length) {
+        return function (breadth) {
+            return function (height) {
+                return length * breadth * height;
+            }
+        }
+    }
+    console.log(calculateVolume(4)(5)(6));
+
+
+
+ difference between exec () and test () match()matchAll() meth
+
+let text = "The best things in Tife are free7789"
+console.log(/[A-Z]/.exec(text),"kk");//returns an array
+console.log(/[A-Za-z0-9]/.test(text),"kk");//retuts an boolean value
+console.log(text.match(/The/),"kk");//returns an array
+console.log([...text.matchAll(/[A-Z]/g)],"kk");// returns an array with multiple findings 
+
+Characteristics of javascript strict-mode
+Strict mode does not allow duplicate arguments and global variables.
+One cannot use JavaScript keywords as a parameter or function name in strict mode.
+All browsers support strict mode. 
+Strict mode can be defined at the start of the script with the help of the keyword ‘use strict’.
+
+
+What is difference between pass by value and pass by reference in JavaScript?
+In pass-by value in JavaScript, a copy of the original variable is created, so any changes made to the copied variable do not affect the original variable. In pass-by reference in JavaScript, we pass the reference of the actual parameter. No copy is created in the memory.
+
+
+NaN property in JavaScript
+NaN property in JavaScript is the “Not-a-Number” value that is not a legal number. 
+
+
+ Implicit Type Coercion in javascript (in detail with examples)
+When the value of one data type is automatically converted into another data type, it is called Implicit type coercion in javascript.
+String coercion
+Example: 
+
+var x = 4;
+
+var y = "4";
+
+x + y // Returns "44" 
+
+Boolean coercion 
+Example:
+
+var a = 0;
+
+var b = 32;      
+
+if(a) { console.log(a) }   // This code will run inside the block as the value of x is 0(Falsy)         
+
+if(b) { console.log(b) }    // This code will run inside the block as the value of y is 32 (Truthy)
+
+
+
+ Difference between “ == “ and “ === “ operators (with examples)
+“==” operator is a comparison operator that used to compare the values
+“===” operator is also a comparison operator that is used to compare the values as well as types.
+Example:
+
+var x = 3;
+
+var y = "3";
+
+(x == y)  // it returns true as the value of both x and y is the same
+
+(x === y) // it returns false as the typeof x is "number" and typeof y is "string"
+
+
+
+ What are the scopes of a variable in JavaScript? 
+The scope of variables in JavaScript is used to determine the accessibility of variables and functions at various parts of one’s code. There are three types of scopes of a variable, global scope, function scope, block scope
+
+
+What is the ‘this’ keyword in JavaScript? 
+The Keyword ‘this’ in JavaScript is used to call the current object as a constructor to assign values to object properties.
+
+
+
+
+
+
+
+
+ What are the various data types that exist in JavaScript?
+Javascript consists of two data types, primitive data types, and non-primitive data types.
+
+Primitive Data types: These data types are used to store a single value. Following are the sub-data types in the Primitive data type.
+Boolean Data Types: It stores true and false values.
+Example:
+var a = 3;
+
+var b =  4;
+
+var c = 3;
+
+(a == b) // returns false
+
+(a == c) //returns true
+
+Null data Types: It stores either empty or unknown values.
+Example:
+
+var z = null;
+
+Undefined data Types: It stores variables that are only declared, but not defined or initialized.
+Example:
+
+var a; // a is undefined
+
+var b = undefined; // we can also set the value of b variable as undefined
+
+Number Data Types: It stores integer as well as floating-point numbers.
+Example:
+
+var x = 4; //without decimal
+
+var y = 5.6; //with decimal
+
+String data Types: It stores characters and alphanumeric values.
+Example:
+
+var str = "Raja Ram Mohan"; //using double quotes
+
+var str2 = 'Raja Rani'; //using single quotes
+
+Symbols Data Types: It stores unique identifiers for objects. 
+Example:
+
+var symbol1 = Symbol('symbol');
+
+BigInt Data Types: It stores the Number data types that are large integers and are above the limitations of number data types. 
+Example: 
+
+var bigInteger =  234567890123456789012345678901234567890;
+
+Non-Primitive Data Types
+Non-Primitive data types are used to store multiple as well as complex values. 
+
+Example:
+
+// Collection of data in key-value pairs
+
+var obj1 = {
+
+   x:  43,
+
+   y:  "Hello world!",
+
+   z: function(){
+
+      return this.x;
+
+   }
+
+}  
+
+// Data collection with an ordered list   
+
+var array1 = [5, "Hello", true, 4.1];  
