@@ -1,9 +1,11 @@
 package com.example.demo.repositories;
 
-import com.example.demo.entity.AutoClave;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.entity.BatchReport;
+
 @Repository
-public interface AutoClaveRepository extends JpaRepository<AutoClave, Long> {
+public interface BatchReportRepository extends JpaRepository<BatchReport, Long>{
+
 }
