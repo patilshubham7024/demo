@@ -1,13 +1,16 @@
 package com.example.demo.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.BatchReport;
+import com.example.demo.mapper.DtoToEntityMapper;
+import com.example.demo.models.BatchReportDTO;
 import com.example.demo.models.DropDownElement;
 import com.example.demo.models.ReportDropDown;
 import com.example.demo.repositories.BatchReportRepository;
@@ -22,20 +25,32 @@ public class ReportService {
 	@Autowired
 	BatchReportRepository batchReportRepository;
 
-	public ReportDropDown getDropdown() {
+	@Autowired
+	DtoToEntityMapper dtoMapper;
+	
+	public ReportDropDown getDropdown(LocalDate from, LocalDate to) {
 		List<DropDownElement> batchNos = new ArrayList<>();
 
-		List<BatchReport> allData = batchReportRepository.findAll();
+		List<BatchReport> allData = batchReportRepository.findByDateTimeBetween(from, to);
 		allData.forEach((report) -> {
 			batchNos.add(DropDownElement.builder().displayText(report.getBatchNo()).value(report.getBatchNo()).build());
 		});
 
-//		return ReportDropDown.builder()
-//				.batchNos(Arrays.asList(DropDownElement.builder().displayText("1697").value("1697").build(),
-//						DropDownElement.builder().displayText("1698").value("1698").build(),
-//						DropDownElement.builder().displayText("1699").value("1699").build()))
-//				.build();
 		return ReportDropDown.builder().batchNos(batchNos).build();
+	}
+
+	public BatchReportDTO getReport(String batchNo) {
+		BatchReportDTO response = null;
+		BatchReport batchReport = null;
+
+		Optional<BatchReport> optional = batchReportRepository.findByBatchNo(batchNo);
+		if (optional.isPresent()) {
+			batchReport = optional.get();
+			response = dtoMapper.mapReportEntityToReportDTO(batchReport);
+			return response;
+		} else {
+			return null;
+		}
 	}
 
 }
