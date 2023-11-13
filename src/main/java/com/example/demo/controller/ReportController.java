@@ -16,8 +16,8 @@ import com.example.demo.service.ReportService;
 
 import lombok.extern.log4j.Log4j2;
 
-@RestController("/report")
-//@RequestMapping("/report")
+@RestController
+@RequestMapping("/report")
 @Log4j2
 @CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.POST, RequestMethod.GET })
 public class ReportController {
