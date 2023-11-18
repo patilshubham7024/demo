@@ -16,7 +16,7 @@ import com.example.demo.utils.StringUtils;
 public class DtoToEntityMapper {
 
 	public BatchReportDTO mapReportEntityToReportDTO(BatchReport batchReport) {
-		BatchReportDTO response = null;
+		BatchReportDTO response = new BatchReportDTO();
 
 		mapHeader(batchReport, response);
 		mapPhases(batchReport, response);
