@@ -35,10 +35,9 @@ public class ReportService {
 		allData.forEach((report) -> {
 			batchNos.add(DropDownElement.builder().displayText(report.getBatchNo()).value(report.getBatchNo()).build());
 		});
-
 		return ReportDropDown.builder().batchNos(batchNos).build();
 	}
-
+ 
 	public BatchReportDTO getReport(String batchNo) {
 		BatchReportDTO response = null;
 		BatchReport batchReport = null;
@@ -53,4 +52,7 @@ public class ReportService {
 		}
 	}
 
+	public BatchReport saveReport(BatchReport batchReport) {
+		return batchReportRepository.save(batchReport);
+	}
 }
