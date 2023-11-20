@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.models.BatchReportDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.BatchReport;
 import com.example.demo.mapper.DtoToEntityMapper;
-import com.example.demo.models.BatchReportDTO;
+import com.example.demo.models.Phases;
 import com.example.demo.models.DropDownElement;
 import com.example.demo.models.ReportDropDown;
 import com.example.demo.repositories.BatchReportRepository;

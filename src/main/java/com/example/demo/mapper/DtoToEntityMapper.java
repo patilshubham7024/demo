@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.example.demo.models.BatchReportDTO;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.entity.BatchReport;
-import com.example.demo.models.BatchReportDTO;
+import com.example.demo.models.Phases;
 import com.example.demo.models.Parameter;
 import com.example.demo.utils.DecimalUtils;
 import com.example.demo.utils.StringUtils;
@@ -16,13 +17,14 @@ import com.example.demo.utils.StringUtils;
 public class DtoToEntityMapper {
 
 	public BatchReportDTO mapReportEntityToReportDTO(BatchReport batchReport) {
-		BatchReportDTO response = new BatchReportDTO();
+		Phases phases = Phases.builder().build();
+		BatchReportDTO reportDTO = BatchReportDTO.builder().dataTable(phases).build();
 
-		mapHeader(batchReport, response);
-		mapPhases(batchReport, response);
-		mapTotal(batchReport, response);
+		mapHeader(batchReport, reportDTO);
+		mapPhases(batchReport, phases);
+		mapTotal(batchReport, reportDTO);
 
-		return response;
+		return reportDTO;
 	}
 	
 	public void mapHeader(BatchReport report, BatchReportDTO dto) {
@@ -33,7 +35,7 @@ public class DtoToEntityMapper {
 		dto.setProductName(report.getProductName());
 	}
 	
-	public void mapPhases(BatchReport batchReport, BatchReportDTO dto) {
+	public void mapPhases(BatchReport batchReport, Phases dto) {
 		dto.setReactorPhase(mapReactorPhase(batchReport));
 		dto.setInitiation(mapInitiation(batchReport));
 	}
