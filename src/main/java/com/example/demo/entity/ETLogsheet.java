@@ -1,7 +1,11 @@
 package com.example.demo.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,24 +28,31 @@ public class ETLogsheet{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @JsonProperty("DATE TIME")
     @Column(name = "ET_DATE_TIME")
-    private Date etDateTime;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime etDateTime;
 
     @Column(name = "BATCH_NO")
     private String batchNo;
 
+    @JsonProperty("ACTIVITY")
     @Column(name = "ACTIVITY")
     private String activity;
 
+    @JsonProperty("ET WEIGHT (KG)")
     @Column(name = "ET_WEIGHT")
     private Float etWeight;
 
+    @JsonProperty("DT WEIGHT (KG)")
     @Column(name = "DT_WEIGHT")
     private Float dtWeight;
 
+    @JsonProperty("AGT RPM (ET)")
     @Column(name = "ET_AGT_RPM")
     private Float etAgtRpm;
+
+    @JsonProperty("OPERATOR NAME")
 
     @Column(name = "ET_OPERATOR_NAME")
     private String etOperatorName;
